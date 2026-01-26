@@ -50,11 +50,26 @@ public class ClusterCacheInvalidationRequest extends ClusteringMessage {
     private String tenantDomain;
     private int tenantId;
 
+    public ClusterCacheInvalidationRequest() {
+    }
+
     public ClusterCacheInvalidationRequest(CacheInfo cacheInfo, String tenantDomain, int tenantId) {
 
         this.cacheInfo = cacheInfo;
         this.tenantDomain = tenantDomain;
         this.tenantId = tenantId;
+    }
+
+    public CacheInfo getCacheInfo() {
+        return cacheInfo;
+    }
+
+    public String getTenantDomain() {
+        return tenantDomain;
+    }
+
+    public int getTenantId() {
+        return tenantId;
     }
 
     @Override
@@ -113,6 +128,19 @@ public class ClusterCacheInvalidationRequest extends ClusteringMessage {
             this.cacheName = cacheName;
             this.cacheKey = cacheKey;
         }
+
+        public String getCacheManagerName() {
+            return cacheManagerName;
+        }
+
+        public String getCacheName() {
+            return cacheName;
+        }
+
+        public Object getCacheKey() {
+            return cacheKey;
+        }
+
     }
 
 }

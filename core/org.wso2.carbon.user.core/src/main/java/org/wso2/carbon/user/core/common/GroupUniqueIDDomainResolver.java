@@ -111,7 +111,7 @@ public class GroupUniqueIDDomainResolver {
                 domainName = getDomainFromDB(groupId, tenantId);
                 // Update the cache.
                 if (StringUtils.isNotBlank(domainName)) {
-                    uniqueIdDomainCache.put(groupId, domainName);
+                    uniqueIdDomainCache.putOnRead(groupId, domainName);
                     if (log.isDebugEnabled()) {
                         log.debug("Domain with name: " + domainName + " retrieved from the database.");
                     }
